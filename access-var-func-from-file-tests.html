@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>external file var func access test</title>
+  <script type="text/javascript" src="js/var-func.js"></script>
+  <script type="text/javascript">
+    var iVar = 'SUCCESS';
+
+    function iFunc() {
+      return iVar;
+    }
+  </script>
+</head>
+<body>
+
+<h1>external file var func access test</h1>
+<p>Inline var: <span id="ivar">FAILURE</span></p>
+<p>Inline func: <span id="ifunc">FAILURE</span></p>
+<p>External var: <span id="evar">FAILURE</span></p>
+<p>External func: <span id="efunc">FAILURE</span></p>
+
+<script type="text/javascript">
+  document.getElementById('ivar').innerText = iVar;
+</script>
+
+<script type="text/javascript">
+  document.getElementById('ifunc').innerText = iFunc();
+</script>
+
+<script type="text/javascript">
+  document.getElementById('evar').innerText = eVar;
+</script>
+
+<script type="text/javascript">
+  document.getElementById('efunc').innerText = eFunc();
+</script>
+
+</body>
+</html>
