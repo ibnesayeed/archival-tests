@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>const scope test</title>
+</head>
+<body>
+<h1>const scope test</h1>
+<p>Global scope: <span id="global">FAILURE</span></p>
+<p>Block scope: <span id="block">FAILURE</span></p>
+<p>IIFE scope: <span id="iife">FAILURE</span></p>
+
+<script type="text/javascript">
+  // Global const
+  var g = document.getElementById('global');
+  const gc = 'SUCCESS';
+  function accessGlobalConst() {
+    g.innerText = gc;
+  }
+  accessGlobalConst();
+</script>
+
+<script type="text/javascript">
+  // Block const
+  var b = document.getElementById('block');
+  {
+    const bc = 'SUCCESS';
+    function accessBlockConst() {
+      b.innerText = bc;
+    }
+    accessBlockConst();
+  }
+</script>
+
+<script type="text/javascript">
+  // IIFE const
+  var i = document.getElementById('iife');
+  (() => {
+    const ic = 'SUCCESS';
+    function accessIIFEConst() {
+      i.innerText = ic;
+    }
+    accessIIFEConst();
+  })();
+</script>
+</body>
+</html>
